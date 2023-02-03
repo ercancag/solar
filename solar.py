@@ -9,23 +9,20 @@ matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-
+ercan = 12
 tüketim = 0
 tasarruf = 0
 
 def open_website():
     webbrowser.open_new("http://www.caglayanmuhendislik.com")
 
-
 ########################## Hesaplamalar########################################
 def calculate():
-    # Get user input
     sunshine_hours = var1.get()
     panel_power = var2.get()
     tüketim = int(entry.get())
     yatirim = int(entry2.get())
     elektrikfiyat = var3.get()
-
     system_power = tüketim / 30 / sunshine_hours
     savings = tüketim * elektrikfiyat
     tasarruf = savings
