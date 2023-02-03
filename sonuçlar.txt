@@ -1,7 +1,7 @@
 ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU
-Hesaplanan Sistem Gücü: 578 kWh
-Gerekli Panel Sayısı: 1404 Adet
-Tasarlanabilir Sistem Gücü: 575 kWh
+Hesaplanan Sistem Gücü: 5 kWh
+Gerekli Panel Sayısı: 18 Adet
+Tasarlanabilir Sistem Gücü: 7 kWh
 Amorti süresi:(Ay): 2 Ay
 Amorti süresi:(Yıl): 0 Yıl
-Aylık Tasarruf: 554053 Türk Lirası
+Aylık Tasarruf: 5553 Türk Lirası

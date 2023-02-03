@@ -9,7 +9,6 @@ matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-ercancaglayan = "caglayanmuhendislik"
 tüketim = 0
 tasarruf = 0
 
@@ -37,16 +36,10 @@ def calculate():
         text=f"Hesaplanan Sistem Gücü: {system_power:.2f} kWh\n"
         f"Gerekli Panel Sayısı: {gereklipanelsayisi:.2f} Adet\n"
         f"Tasarlanabilir Sistem Gücü: {tasarlanabilirsistemgücü:.2f} kWh\n"
-        f"Amorti süresi:(Ay) {payback_period:.2f} Ay\n"
-        f"Amorti süresi (Yıl): {payback_periodmonth:.2f} Yıl\n"
-        f"Aylık tasarruf: {tasarruf:.2f} TL\n")
-    result2.configure(
-        text="Bu Program\n"
-        "Çağlayan Mühendislik\n"
-        "Limited Şirketi tarafından\n"
-        "Geliştirilmiştir\n"
-        "\n"
-        "")
+        f"Amorti Süresi:(Ay) {payback_period:.2f} Ay\n"
+        f"Amorti Süresi (Yıl): {payback_periodmonth:.2f} Yıl\n"
+        f"Aylık Tasarruf: {tasarruf:.2f} TL\n", bg='lightgreen', font=('Helvatical bold',16))
+  
     with open('sonuçlar.txt', 'w') as f:
         f.write("ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU" + "\n")
         f.write("Hesaplanan Sistem Gücü: " + '%d' % system_power + " kWh" + "\n")
@@ -68,6 +61,8 @@ root.title("Güneş Enerjisi Sistem Tasarımı -- designed by ercancag")
 
 
 frame = tk.Frame(root)
+frame2 = tk.Frame(root)
+designer_etiket = tk.Label(frame,text="Bu program Çağlayan Mühendislik Ltd. Şti. tarafından geliştirilmiştir.", foreground="red")
 var1 = tk.Variable()
 var2 = tk.IntVar()
 var3 = tk.Variable()
@@ -101,7 +96,6 @@ entry2 = tk.Entry(frame)
 calculate_button = tk.Button(frame, text="Hesapla", command=calculate)
 #calculate_button.config(font=('Arial',17,BOLD), foreground="darkgreen", activeforeground="Purple")
 result = tk.Label(frame, text="")
-result2 = tk.Label(frame, text="")
 #Etiket Yerleştirmeleri
 konum_etiket.grid(row=0, column=0)
 konum_menu.grid(row=0, column=1)
@@ -113,13 +107,13 @@ tüketim_etiket.grid(row=3, column=0)
 entry.grid(row=3, column=1)
 yatirim_label.grid(row=4, column=0)
 entry2.grid(row=4, column=1)
-
+designer_etiket.grid(row=8, column=0)
 #Hesaplama Butonu
 calculate_button.grid(row=5, column=0)
 result.grid(row=7, column=0)
-result2.grid(row=7, column=1)
-frame.pack(padx=20, pady=20)
 
+frame.pack(padx=20, pady=20)
+frame2.pack(padx=20, pady=20)
 ########### WebSite Butonu########################
 gowebsite = tk.Button(frame, text="Hakkında",command=open_website)
 #gowebsite.config(font=('Arial',17,BOLD))
@@ -148,8 +142,8 @@ def yeni_pencere_ac():
             print(tasarruf)
     cizdirme_butonu = tk.Button(yeni_pencere,text="Çiz", command=grafik_ciz)
     cizdirme_butonu.pack()
-grafiksayfasıbutonu = tk.Button(root, text="Grafik",command=yeni_pencere_ac)
-grafiksayfasıbutonu.pack()
+grafiksayfasıbutonu = tk.Button(frame, text="Grafik",command=yeni_pencere_ac)
+grafiksayfasıbutonu.grid(row=5, column=2)
 
 
 #Resimler
@@ -161,14 +155,14 @@ image = tk.PhotoImage(file="ercancagimza.png")
 #Kanvaslar
 kanvas = tk.Canvas(root, height=70, width=280)
 kanvas.create_image(135, 40, image=image)
-kanvas.pack(padx=10, pady=10)
+kanvas.pack(padx=10, pady=10, side="left")
 kanvas2 = tk.Canvas(root, height=80, width=300)
 kanvas2.create_image(155, 40, image=my_img)
-kanvas2.pack(padx=10, pady=10)
+kanvas2.pack(padx=10, pady=10, side="right")
 
 ######## SAAT ############################
 saat_label = tk.Label(root, font='Verdena', fg='black') 
-saat_label.pack()
+saat_label.pack(side="right", fill=tk.X)
 def digital_clock(): 
     time_live = time.strftime("%H:%M:%S")
     saat_label.config(text=time_live, font=('Arial',30,BOLD)) 
@@ -178,7 +172,7 @@ digital_clock()
 ########### Yeni Sayfa ##########
 def open_python_file():
     subprocess.call(["python3", "guneslenmesuresi.py"])
-open_file_button = tk.Button(frame, text="Türkiye Güneşlenme Süresi Haritası", command=open_python_file)
+open_file_button = tk.Button(frame, text="Harita", command=open_python_file)
 #open_file_button.config(font=("Verdena",17,BOLD), foreground='blue')
 open_file_button.grid(row=5, column=1)
 
