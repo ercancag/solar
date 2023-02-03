@@ -9,7 +9,7 @@ matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-ercan = 12
+ercancaglayan = "caglayanmuhendislik"
 tüketim = 0
 tasarruf = 0
 
