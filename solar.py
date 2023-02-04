@@ -123,7 +123,7 @@ gowebsite.grid(row=6, column=0)
 def yeni_pencere_ac():
     yeni_pencere = tk.Toplevel(root)
     yeni_pencere.title("Yeni Pencere")
-    yeni_pencere.geometry('400x400')
+    yeni_pencere.geometry('800x600')
     def grafik_ciz():
             tüketim = int(entry.get())
             elektrikfiyat = var3.get()
@@ -131,15 +131,19 @@ def yeni_pencere_ac():
             tasarruf = savings
             f = Figure(figsize=(5,5), dpi=100)
             a = f.add_subplot(111)
+            a.set_facecolor('aquamarine')
+            a.set_yscale('log')
             x = [1,2,3,4,5]
             y = [12*tasarruf,2.1*12*tasarruf,3.2*12*tasarruf,4.3*12*tasarruf,5.4*12*tasarruf]
-            a.plot(x,y)
+            a.plot(x,y,linewidth=5, color='red')
+            a.set_title("Yıllara Göre Kazanım - Amortisman")
+            a.set_autoscale_on("b")
             a.set_xlabel("YIL")
             a.set_ylabel("Türk Lirası")
             canvas = FigureCanvasTkAgg(f, yeni_pencere)
             canvas.draw()
             canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH , expand=True)
-            print(tasarruf)
+            
     cizdirme_butonu = tk.Button(yeni_pencere,text="Çiz", command=grafik_ciz)
     cizdirme_butonu.pack()
 grafiksayfasıbutonu = tk.Button(frame, text="Grafik",command=yeni_pencere_ac)
