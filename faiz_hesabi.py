@@ -56,3 +56,4 @@ result.grid(row=0,column=0)
 frame1.pack(padx=20, pady=20)
 frame2.pack(padx=20, pady=20)
 root.mainloop()
+#denemetestgithub
