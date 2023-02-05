@@ -1,12 +1,12 @@
 import random
 import turtle
-colors = ['red','cyan','pink' ,'yellow', 'green','orange']
+colors = ['black','lightpink','red' ,'yellow', 'green','orange']
 t = turtle.Turtle()
 t.speed(1000)
-turtle.bgcolor("black")
-length=100
-angle =50
-size=5
+turtle.bgcolor("aquamarine")
+length=600
+angle =70
+size=3
 for i in range(length):
     color=random.choice(colors)
     t.pencolor(color)
