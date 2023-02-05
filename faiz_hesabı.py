@@ -4,15 +4,16 @@ from PIL import Image, ImageTk
 
 root = tk.Tk()
 root.title("FAİZ HESAPLAMA")
+root.colormapwindows()
 frame1 = tk.Frame(root)
 frame2 = tk.Frame(root)
 anapara_girisi = tk.Entry(frame1)
 faiz_orani_girisi = tk.Entry(frame1)
 vade_süresi_girisi =tk.Entry(frame1)
 
-anapara_etiket = tk.Label(frame1, text="Anapara:", font=('MV Boli',16),relief=("groove"), background="aquamarine", borderwidth="3")
-faiz_orani_etiket = tk.Label(frame1, text="Faiz Oranı %:", font=('MV Boli',16),relief=("groove"), background="gold", borderwidth="3" )
-vade_süresi_etiket = tk.Label(frame1, text="Vade Süresi (Gün):", font=('MV Boli',16),relief=("groove"), background="lightpink",borderwidth="3")
+anapara_etiket = tk.Label(frame1, text="Anapara:",anchor='e', font=('MV Boli',16),relief=("groove"), background="aquamarine", borderwidth="3", )
+faiz_orani_etiket = tk.Label(frame1, text="Faiz Oranı %:",anchor='e', font=('MV Boli',16),relief=("groove"), background="gold", borderwidth="3" )
+vade_süresi_etiket = tk.Label(frame1, text="Vade Süresi (Gün):",anchor='w', font=('MV Boli',16),relief=("groove"), background="lightpink",borderwidth="3")
 
 
 def hesaplama():
