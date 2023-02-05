@@ -187,14 +187,5 @@ def yazdir():
 yazdirbutonu = tk.Button(frame, text="Sonuçları Yazdır", command=yazdir)
 yazdirbutonu.grid(row=6, column=1, sticky='E')
 #yazdirbutonu.config(font=('Verdena',17,BOLD), bg='green', foreground="red")
-
-
-
-
-
-
-
-
-
-
 root.mainloop()
+#githubpush denemesi

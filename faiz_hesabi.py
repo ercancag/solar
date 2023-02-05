@@ -15,7 +15,6 @@ anapara_etiket = tk.Label(frame1, text="Anapara:",anchor='e', font=('MV Boli',16
 faiz_orani_etiket = tk.Label(frame1, text="Faiz Oranı %:",anchor='e', font=('MV Boli',16),relief=("groove"), background="gold", borderwidth="3" )
 vade_süresi_etiket = tk.Label(frame1, text="Vade Süresi (Gün):",anchor='w', font=('MV Boli',16),relief=("groove"), background="lightpink",borderwidth="3")
 
-
 def hesaplama():
     anapara = int(anapara_girisi.get())
     faiz = int(faiz_orani_girisi.get())
@@ -56,4 +55,3 @@ result.grid(row=0,column=0)
 frame1.pack(padx=20, pady=20)
 frame2.pack(padx=20, pady=20)
 root.mainloop()
-#denemetestgithub
