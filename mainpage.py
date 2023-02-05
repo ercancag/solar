@@ -4,7 +4,7 @@ from tkinter import ttk
 import webbrowser 
 from tkinter import messagebox
 import pyautogui
-
+from PIL import Image, ImageTk
 #for döngüsü
 # tr_harfler = "123456789"
 # for harf in tr_harfler:
@@ -27,7 +27,7 @@ def on_submit():
 
 # Create the main window
 root = tk.Tk()
-root.geometry("1200x300")
+root.geometry("1200x320")
 root.title("CAGLAYAN MUH")
 
 def ekrankayit():
@@ -37,9 +37,10 @@ def ekrankayit():
 
 
 
-
-image = tk.PhotoImage(file="caglayan.png")
-button = tk.Button(root, image=image, command=open_website)
+image2=Image.open('caglayan.png')
+boyutluimage2 = image2.resize((270,65))
+my_img=ImageTk.PhotoImage(boyutluimage2)
+button = tk.Button(root, image=my_img, command=open_website)
 button.place(x=1,y=235)
 
 # def sayfa2():
