@@ -2,12 +2,14 @@ import tkinter as tk
 import time
 from PIL import Image, ImageTk
 import webbrowser
+from tkinter.font import BOLD, ITALIC
 anapencere = tk.Tk()
 anapencere.title('Maliyet Analizi - Çağlayan Mühendislik')
 
 çerçeve1 = tk.Frame(anapencere)
 çerçeve2 = tk.Frame(anapencere)
 çerçeve3 = tk.Frame(anapencere)
+çerçeve4 = tk.Frame(anapencere)
 
 def open_website():
     webbrowser.open_new("http://www.caglayanmuhendislik.com")
@@ -33,7 +35,8 @@ def hesaplama():
     f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $\n"
     f"Toplam Maliyet: {toplam_maliyet_tl:.2f} Türk Lirası\n"
     )
-    sonuc_etiketi.grid(row=0,column=0)
+    sonuc_etiketi.grid(row=0,column=0,padx=20,pady=20)
+
 var1 = tk.Variable()
 var2 = tk.Variable()
 var3 = tk.Variable()
@@ -41,7 +44,6 @@ var4 = tk.Variable()
 var5 = tk.Variable()
 var1.set(410)
 var2.set(1.1)
-
 
 panel_birim_fiyat_girisi = tk.Entry(çerçeve1)
 panel_birim_fiyat_girisi.insert(0, 0.42)
@@ -72,7 +74,7 @@ src_fiyat_etiket = tk.Label(çerçeve1, text="Sürücü / İnvertör Fiyatı (US
 src_fiyat_etiket.grid(row=2,column=0)
 src_fiyat_girisi.grid(row=2,column=1)
 konstrüksiyon_etiket = tk.Label(çerçeve1, text='Panel Başına Konstrüksiyon Fiyatı: ($)')
-konstrüksiyon_etiket.grid(row=3,column=0)
+konstrüksiyon_etiket.grid(row=3)
 konstrüksiyon_girisi = tk.Entry(çerçeve1)
 konstrüksiyon_girisi.insert(0,23)
 konstrüksiyon_girisi.grid(row=3,column=1)
@@ -82,29 +84,28 @@ diger_giderler_giris = tk.Entry(çerçeve1)
 diger_giderler_giris.insert(0, 350)
 diger_giderler_giris.grid(row=3,column=3)
 
-
-
-
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
-hesaplama_butonu.grid(row=6,column=0)
+hesaplama_butonu.config(font=('Chalkduster',20,BOLD), foreground="green")
+hesaplama_butonu.grid(row=6,column=0,padx=20,pady=20)
 
 imzaimage = tk.PhotoImage(file="ercancagimza.png")
 image2=Image.open('caglayan.png')
 boyutluimage2 = image2.resize((270,65))
 my_img=ImageTk.PhotoImage(boyutluimage2)
-kanvas = tk.Canvas(çerçeve3, height=70, width=250)
+kanvas = tk.Canvas(çerçeve4, height=70, width=250)
 kanvas.create_image(135, 40, image=imzaimage)
 kanvas.pack(padx=10, pady=10,side='left')
-kanvas2 = tk.Canvas(çerçeve3, height=80, width=300)
+kanvas2 = tk.Canvas(çerçeve4, height=80, width=300)
 kanvas2.create_image(155, 40, image=my_img)
 kanvas2.pack(padx=10, pady=10, side="right")
 
 gowebsite = tk.Button(çerçeve1, text="Hakkında",command=open_website)
-#gowebsite.config(font=('Arial',17,BOLD))
-gowebsite.grid(row=6,column=3)
-
+gowebsite.config(font=('Chalkduster',20,BOLD), foreground="red")
+gowebsite.grid(row=6,column=3,padx=20,pady=20)
 
 çerçeve1.pack(padx=20,pady=20)
 çerçeve2.pack(padx=20,pady=20)
 çerçeve3.pack(padx=20,pady=20)
+çerçeve4.pack(padx=20,pady=20)
+
 anapencere.mainloop()
