@@ -39,6 +39,7 @@ def hesaplama():
     f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $          "
     f"Diğer Giderler: {diger_giderler:.2f} $\n"
     f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $\n"
+    f"Dolar Kuru {usd_kur_var:.2f} Türk Lirası\n"
     f"Toplam Maliyet: {toplam_maliyet_tl:.2f} Türk Lirası\n"
     )
     sonuc_etiketi.grid(row=0,column=0,padx=20,pady=20)
