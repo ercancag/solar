@@ -3,6 +3,9 @@ import time
 from PIL import Image, ImageTk
 import webbrowser
 from tkinter.font import BOLD, ITALIC
+from DovizKurlari import DovizKurlari
+dovizbilgisial = DovizKurlari()
+Dolar_Deger = dovizbilgisial.DegerSor("USD","ForexBuying")
 
 anapencere = tk.Tk()
 anapencere.title('Maliyet Analizi - Çağlayan Mühendislik')
@@ -19,7 +22,7 @@ def hesaplama():
     panel_gücü = float(var1.get())
     panel_kdv = float(var2.get())
     panel_birim_fiyat_var = float(panel_birim_fiyat_girisi.get())
-    usd_kur_var = float(usd_kur_girisi.get())
+    usd_kur_var = float(Dolar_Deger)
     panel_adet = float(panel_sayisi_girisi.get())
     src_fiyat = float(src_fiyat_girisi.get())
     diger_giderler = float(diger_giderler_giris.get())
@@ -70,7 +73,7 @@ panel_kdv_menu.grid(row=1,column=1)
 usd_kur_etiketi = tk.Label(çerçeve1, text='Usd Kuru: (TL)')
 usd_kur_etiketi.grid(row=2,column=2)
 usd_kur_girisi.grid(row=2,column=3)
-usd_kur_girisi.insert(0,18.95)
+usd_kur_girisi.insert(0,Dolar_Deger)
 src_fiyat_girisi = tk.Entry(çerçeve1)
 src_fiyat_girisi.insert(0,350)
 src_fiyat_etiket = tk.Label(çerçeve1, text="Sürücü / İnvertör Fiyatı (USD): ")
