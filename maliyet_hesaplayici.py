@@ -3,6 +3,7 @@ import time
 from PIL import Image, ImageTk
 import webbrowser
 from tkinter.font import BOLD, ITALIC
+
 anapencere = tk.Tk()
 anapencere.title('Maliyet Analizi - Çağlayan Mühendislik')
 
