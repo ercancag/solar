@@ -5,7 +5,7 @@ import webbrowser
 from tkinter.font import BOLD, ITALIC
 from DovizKurlari import DovizKurlari
 dovizbilgisial = DovizKurlari()
-Dolar_Deger = dovizbilgisial.DegerSor("USD","ForexBuying")
+Dolar_Deger = dovizbilgisial.DegerSor("USD","ForexSelling")
 
 anapencere = tk.Tk()
 anapencere.title('Maliyet Analizi - Çağlayan Mühendislik')
