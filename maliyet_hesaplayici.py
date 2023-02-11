@@ -41,12 +41,24 @@ def hesaplama():
         f"Sürücü: {src_fiyat:.2f} $\n"
         f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $          "
         f"Diğer Giderler: {diger_giderler:.2f} $\n"
+        f"Beton Maliyeti:{beton_fyt:.2f} $\n"
+        f"İşçilik Maliyeti: {iscilik_fyt:.2f} $\n"
         f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $\n"
         f"Dolar Kuru {usd_kur_var:.2f} Türk Lirası\n"
         f"Toplam Maliyet: {toplam_maliyet_tl:.2f} Türk Lirası\n"
         )
-        sonuc_etiketi.grid(row=0,column=0,padx=20,pady=20)
-        
+        sonuc_etiketi.grid(row=0,column=0,padx=10,pady=10)
+        with open('maliyet_hesabi.txt', 'w') as f:
+            f.write("ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU" + "\n")
+            f.write("Panel: " + '%d' % panel_sonuc_usd + " $" + "\n")
+            f.write("Sürücü: " + '%d' % src_fiyat + " $" + "\n")
+            f.write("Konstrüksiyon: " + '%d' % konstrüksiyon_fyt + " $" + "\n")
+            f.write("Diğer Giderler: " + '%d' % diger_giderler + " $" + "\n")
+            f.write("Beton Maliyeti: " + '%d' % beton_fyt + " $" + "\n")
+            f.write("İşçilik Maliyeti: " + '%d' % iscilik_fyt + " $" + "\n")
+            f.write("Toplam Maliyet: " + '%d' % toplam_maliyet_usd + " $" + "\n")
+            f.write("Dolar Kuru: " + '%d' % usd_kur_var + " Türk Lirası" + "\n")
+            f.write("Toplam Maliyet:" + '%d' % toplam_maliyet_tl + " Türk Lirası" + "\n")
 
 var1 = tk.Variable()
 var2 = tk.Variable()
@@ -106,7 +118,7 @@ iscilik_giris.grid(row=4,column=3)
 iscilik_giris.insert(0,250)
 
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
-hesaplama_butonu.config(font=('Chalkduster',20,BOLD), foreground="green")
+hesaplama_butonu.config(font=('DIN Condensed',25,BOLD), foreground="green")
 hesaplama_butonu.grid(row=8,column=0,padx=20,pady=20)
 
 imzaimage = tk.PhotoImage(file="ercancagimza.png")
@@ -121,7 +133,7 @@ saat_label = tk.Label(çerçeve4, font='Verdena', fg='black')
 saat_label.pack(side="right", fill=tk.X)
 def digital_clock(): 
     time_live = time.strftime("%H:%M:%S")
-    saat_label.config(text=time_live, font=('Arial',30,BOLD)) 
+    saat_label.config(text=time_live, font=('Clarendon Blk BT',30,BOLD), background="yellow") 
     saat_label.after(100, digital_clock)
 digital_clock()
 
