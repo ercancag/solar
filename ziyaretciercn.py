@@ -4,7 +4,7 @@ from tkinter import ttk
 import webbrowser 
 from tkinter import messagebox
 import pyautogui
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageGrab
 #for döngüsü
 # tr_harfler = "123456789"
 # for harf in tr_harfler:
@@ -31,8 +31,12 @@ root.geometry("1200x320")
 root.title("CAGLAYAN MUH")
 
 def ekrankayit():
-    screenshot = pyautogui.screenshot()
-    screenshot.save("active_window.png")
+    x = root.winfo_rootx()
+    y = root.winfo_rooty()
+    width = root.winfo_width()
+    height = root.winfo_height()
+    screenshot = ImageGrab.grab(bbox=(x, y, x+width, y+height))
+    screenshot.save("ziyaretci_ekran_kayit.png")
 
 
 

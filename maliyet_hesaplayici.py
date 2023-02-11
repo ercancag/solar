@@ -1,9 +1,11 @@
 import tkinter as tk
+from tkinter import messagebox
 import time
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageGrab
 import webbrowser
 from tkinter.font import BOLD, ITALIC
 from DovizKurlari import DovizKurlari
+
 dovizbilgisial = DovizKurlari()
 Dolar_Deger = dovizbilgisial.DegerSor("USD","ForexSelling")
 
@@ -19,30 +21,32 @@ def open_website():
     webbrowser.open_new("http://www.caglayanmuhendislik.com")
 
 def hesaplama():
-    panel_gücü = float(var1.get())
-    panel_kdv = float(var2.get())
-    panel_birim_fiyat_var = float(panel_birim_fiyat_girisi.get())
-    usd_kur_var = float(Dolar_Deger)
-    panel_adet = float(panel_sayisi_girisi.get())
-    src_fiyat = float(src_fiyat_girisi.get())
-    diger_giderler = float(diger_giderler_giris.get())
-    konstrüksiyon_girdi = float(konstrüksiyon_girisi.get())
-    beton_fyt = float(beton_giris.get())
-    iscilik_fyt = float(iscilik_giris.get())
-    panel_sonuc_usd = panel_gücü * panel_birim_fiyat_var * panel_kdv * panel_adet
-    konstrüksiyon_fyt = panel_adet * konstrüksiyon_girdi
-    toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler + beton_fyt + iscilik_fyt
-    toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var
-    sonuc_etiketi = tk.Label(çerçeve2, font=('savoye let',30),padx=10, pady=10,foreground='black',
-    text=f"Panel: {panel_sonuc_usd:.2f} $          "
-    f"Sürücü: {src_fiyat:.2f} $\n"
-    f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $          "
-    f"Diğer Giderler: {diger_giderler:.2f} $\n"
-    f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $\n"
-    f"Dolar Kuru {usd_kur_var:.2f} Türk Lirası\n"
-    f"Toplam Maliyet: {toplam_maliyet_tl:.2f} Türk Lirası\n"
-    )
-    sonuc_etiketi.grid(row=0,column=0,padx=20,pady=20)
+    if messagebox.askokcancel("Onay", "Tüm Değerleri \n Doğru Girdiğinizden \n Emin misiniz?"):
+        panel_gücü = float(var1.get())
+        panel_kdv = float(var2.get())
+        panel_birim_fiyat_var = float(panel_birim_fiyat_girisi.get())
+        usd_kur_var = float(Dolar_Deger)
+        panel_adet = float(panel_sayisi_girisi.get())
+        src_fiyat = float(src_fiyat_girisi.get())
+        diger_giderler = float(diger_giderler_giris.get())
+        konstrüksiyon_girdi = float(konstrüksiyon_girisi.get())
+        beton_fyt = float(beton_giris.get())
+        iscilik_fyt = float(iscilik_giris.get())
+        panel_sonuc_usd = panel_gücü * panel_birim_fiyat_var * panel_kdv * panel_adet
+        konstrüksiyon_fyt = panel_adet * konstrüksiyon_girdi
+        toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler + beton_fyt + iscilik_fyt
+        toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var
+        sonuc_etiketi = tk.Label(çerçeve2, font=('savoye let',30),padx=10, pady=10,foreground='black',
+        text=f"Panel: {panel_sonuc_usd:.2f} $          "
+        f"Sürücü: {src_fiyat:.2f} $\n"
+        f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $          "
+        f"Diğer Giderler: {diger_giderler:.2f} $\n"
+        f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $\n"
+        f"Dolar Kuru {usd_kur_var:.2f} Türk Lirası\n"
+        f"Toplam Maliyet: {toplam_maliyet_tl:.2f} Türk Lirası\n"
+        )
+        sonuc_etiketi.grid(row=0,column=0,padx=20,pady=20)
+        
 
 var1 = tk.Variable()
 var2 = tk.Variable()
@@ -112,6 +116,15 @@ my_img=ImageTk.PhotoImage(boyutluimage2)
 kanvas = tk.Canvas(çerçeve4, height=70, width=250)
 kanvas.create_image(135, 40, image=imzaimage)
 kanvas.pack(padx=10, pady=10,side='left')
+########################### SAAT ###################################
+saat_label = tk.Label(çerçeve4, font='Verdena', fg='black') 
+saat_label.pack(side="right", fill=tk.X)
+def digital_clock(): 
+    time_live = time.strftime("%H:%M:%S")
+    saat_label.config(text=time_live, font=('Arial',30,BOLD)) 
+    saat_label.after(100, digital_clock)
+digital_clock()
+
 kanvas2 = tk.Canvas(çerçeve4, height=80, width=300)
 kanvas2.create_image(155, 40, image=my_img)
 kanvas2.pack(padx=10, pady=10, side="right")
@@ -120,10 +133,26 @@ gowebsite = tk.Button(çerçeve1, text="Hakkında",command=open_website)
 gowebsite.config(font=('Chalkduster',20,BOLD), foreground="red")
 gowebsite.grid(row=8,column=3,padx=20,pady=20)
 
+############################ Ekran Görüntüsü #################################
+def ekrankayit():
+    x = anapencere.winfo_rootx()
+    y = anapencere.winfo_rooty()
+    width = anapencere.winfo_width()
+    height = anapencere.winfo_height()
+    screenshot = ImageGrab.grab(bbox=(x, y, x+width, y+height))
+    screenshot.save("maliyet_hesabı_ekran_kayit.png")
+def take_screenshot():
+    #'Emin misiniz?' mesaj kutusu göster
+    if messagebox.askokcancel("Onay", "Ekran Görüntüsü \n Alınacaktır \n Emin misiniz?"):
+        #Ekran görüntüsü almak için capture_screen() fonksiyonunu çağır
+        anapencere.after(100, ekrankayit)
+ekran_goruntusu = tk.Button(çerçeve1, text="Ekran Görüntüsü",command=take_screenshot)
+ekran_goruntusu.config(font=('Chalkduster',20,BOLD), foreground="blue")
+ekran_goruntusu.grid(row=8,column=2)
+
 çerçeve1.pack(padx=20,pady=20)
 çerçeve2.pack(padx=20,pady=20)
 çerçeve3.pack(padx=20,pady=20)
 çerçeve4.pack(padx=20,pady=20)
 
 anapencere.mainloop()
-#deneme caglayan
