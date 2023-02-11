@@ -23,9 +23,11 @@ def hesaplama():
     src_fiyat = float(src_fiyat_girisi.get())
     diger_giderler = float(diger_giderler_giris.get())
     konstrüksiyon_girdi = float(konstrüksiyon_girisi.get())
+    beton_fyt = float(beton_giris.get())
+    iscilik_fyt = float(iscilik_giris.get())
     panel_sonuc_usd = panel_gücü * panel_birim_fiyat_var * panel_kdv * panel_adet
     konstrüksiyon_fyt = panel_adet * konstrüksiyon_girdi
-    toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler
+    toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler + beton_fyt + iscilik_fyt
     toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var
     sonuc_etiketi = tk.Label(çerçeve2, font=('savoye let',30),padx=10, pady=10,foreground='black',
     text=f"Panel: {panel_sonuc_usd:.2f} $          "
@@ -81,12 +83,22 @@ konstrüksiyon_girisi.grid(row=3,column=1)
 diger_giderler_etiket = tk.Label(çerçeve1, text="Diğer Giderler: ($)")
 diger_giderler_etiket.grid(row=3,column=2)
 diger_giderler_giris = tk.Entry(çerçeve1)
-diger_giderler_giris.insert(0, 350)
+diger_giderler_giris.insert(0, 100)
 diger_giderler_giris.grid(row=3,column=3)
+beton_etiket = tk.Label(çerçeve1,text="Beton Maliyeti: ($)")
+beton_etiket.grid(row=4,column=0)
+beton_giris = tk.Entry(çerçeve1)
+beton_giris.insert(0,250)
+beton_giris.grid(row=4,column=1)
+iscilik_etiket = tk.Label(çerçeve1,text="İşçilik Maliyeti: ($)")
+iscilik_etiket.grid(row=4,column=2)
+iscilik_giris = tk.Entry(çerçeve1)
+iscilik_giris.grid(row=4,column=3)
+iscilik_giris.insert(0,250)
 
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
 hesaplama_butonu.config(font=('Chalkduster',20,BOLD), foreground="green")
-hesaplama_butonu.grid(row=6,column=0,padx=20,pady=20)
+hesaplama_butonu.grid(row=8,column=0,padx=20,pady=20)
 
 imzaimage = tk.PhotoImage(file="ercancagimza.png")
 image2=Image.open('caglayan.png')
@@ -101,7 +113,7 @@ kanvas2.pack(padx=10, pady=10, side="right")
 
 gowebsite = tk.Button(çerçeve1, text="Hakkında",command=open_website)
 gowebsite.config(font=('Chalkduster',20,BOLD), foreground="red")
-gowebsite.grid(row=6,column=3,padx=20,pady=20)
+gowebsite.grid(row=8,column=3,padx=20,pady=20)
 
 çerçeve1.pack(padx=20,pady=20)
 çerçeve2.pack(padx=20,pady=20)
