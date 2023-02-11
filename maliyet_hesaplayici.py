@@ -36,18 +36,18 @@ def hesaplama():
         konstrüksiyon_fyt = panel_adet * konstrüksiyon_girdi
         toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler + beton_fyt + iscilik_fyt
         toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var
-        sonuc_etiketi = tk.Label(çerçeve2, font=('savoye let',30),padx=10, pady=10,foreground='black',
+        sonuc_etiketi = tk.Label(çerçeve2, font=('GeoSlab703 MdCn BT',25),padx=10, pady=10,foreground='black',
         text=f"Panel: {panel_sonuc_usd:.2f} $          "
         f"Sürücü: {src_fiyat:.2f} $\n"
-        f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $          "
+        f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $        "
         f"Diğer Giderler: {diger_giderler:.2f} $\n"
-        f"Beton Maliyeti:{beton_fyt:.2f} $\n"
+        f"Beton Maliyeti: {beton_fyt:.2f} $          "
         f"İşçilik Maliyeti: {iscilik_fyt:.2f} $\n"
-        f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $\n"
-        f"Dolar Kuru {usd_kur_var:.2f} Türk Lirası\n"
+        f"Toplam Maliyet: {toplam_maliyet_usd:.2f} $             "
+        f"Dolar Kuru {usd_kur_var:.2f} Türk Lirası\n\n"
         f"Toplam Maliyet: {toplam_maliyet_tl:.2f} Türk Lirası\n"
         )
-        sonuc_etiketi.grid(row=0,column=0,padx=10,pady=10)
+        sonuc_etiketi.grid(row=0,column=0,padx=1,pady=1)
         with open('maliyet_hesabi.txt', 'w') as f:
             f.write("ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU" + "\n")
             f.write("Panel: " + '%d' % panel_sonuc_usd + " $" + "\n")
@@ -93,7 +93,7 @@ usd_kur_girisi.grid(row=2,column=3)
 usd_kur_girisi.insert(0,Dolar_Deger)
 src_fiyat_girisi = tk.Entry(çerçeve1)
 src_fiyat_girisi.insert(0,350)
-src_fiyat_etiket = tk.Label(çerçeve1, text="Sürücü / İnvertör Fiyatı (USD): ")
+src_fiyat_etiket = tk.Label(çerçeve1, text="Sürücü / İnvertör Fiyatı ($): ")
 src_fiyat_etiket.grid(row=2,column=0)
 src_fiyat_girisi.grid(row=2,column=1)
 konstrüksiyon_etiket = tk.Label(çerçeve1, text='Panel Başına Konstrüksiyon Fiyatı: ($)')
@@ -118,8 +118,8 @@ iscilik_giris.grid(row=4,column=3)
 iscilik_giris.insert(0,250)
 
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
-hesaplama_butonu.config(font=('DIN Condensed',25,BOLD), foreground="green")
-hesaplama_butonu.grid(row=8,column=0,padx=20,pady=20)
+hesaplama_butonu.config(font=('DIN Condensed',25), foreground="blue")
+hesaplama_butonu.grid(row=8,column=0,padx=1,pady=1)
 
 imzaimage = tk.PhotoImage(file="ercancagimza.png")
 image2=Image.open('caglayan.png')
@@ -127,22 +127,22 @@ boyutluimage2 = image2.resize((270,65))
 my_img=ImageTk.PhotoImage(boyutluimage2)
 kanvas = tk.Canvas(çerçeve4, height=70, width=250)
 kanvas.create_image(135, 40, image=imzaimage)
-kanvas.pack(padx=10, pady=10,side='left')
+kanvas.pack(padx=1, pady=1,side='left')
 ########################### SAAT ###################################
 saat_label = tk.Label(çerçeve4, font='Verdena', fg='black') 
 saat_label.pack(side="right", fill=tk.X)
 def digital_clock(): 
-    time_live = time.strftime("%H:%M:%S")
-    saat_label.config(text=time_live, font=('Clarendon Blk BT',30,BOLD), background="yellow") 
+    time_live = time.strftime("%H:%M:%S" + "\n" + "%A" + "\n" "%d/%m/%Y")
+    saat_label.config(text=time_live, font=('Clarendon Blk BT',20,BOLD), background="aquamarine") 
     saat_label.after(100, digital_clock)
 digital_clock()
 
 kanvas2 = tk.Canvas(çerçeve4, height=80, width=300)
 kanvas2.create_image(155, 40, image=my_img)
-kanvas2.pack(padx=10, pady=10, side="right")
+kanvas2.pack(padx=1, pady=1, side="right")
 
 gowebsite = tk.Button(çerçeve1, text="Hakkında",command=open_website)
-gowebsite.config(font=('Chalkduster',20,BOLD), foreground="red")
+gowebsite.config(font=('DIN Condensed',25), foreground="red")
 gowebsite.grid(row=8,column=3,padx=20,pady=20)
 
 ############################ Ekran Görüntüsü #################################
@@ -159,11 +159,11 @@ def take_screenshot():
         #Ekran görüntüsü almak için capture_screen() fonksiyonunu çağır
         anapencere.after(100, ekrankayit)
 ekran_goruntusu = tk.Button(çerçeve1, text="Ekran Görüntüsü",command=take_screenshot)
-ekran_goruntusu.config(font=('Chalkduster',20,BOLD), foreground="blue")
+ekran_goruntusu.config(font=('DIN Condensed',25), foreground="green")
 ekran_goruntusu.grid(row=8,column=2)
 
-çerçeve1.pack(padx=20,pady=20)
-çerçeve2.pack(padx=20,pady=20)
+çerçeve1.pack(padx=10,pady=10)
+çerçeve2.pack(padx=10,pady=10)
 çerçeve3.pack(padx=20,pady=20)
 çerçeve4.pack(padx=20,pady=20)
 
