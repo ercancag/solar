@@ -1,10 +1,10 @@
-Ã‡AÄžLAYAN MÃœHENDÄ°SLÄ°K LÄ°MÄ°TED ÅžÄ°RKETÄ° SÄ°STEM RAPORU
+ÇAÐLAYAN MÜHENDÝSLÝK LÝMÝTED ÞÝRKETÝ SÝSTEM RAPORU
 Panel: 2462 $
-SÃ¼rÃ¼cÃ¼: 350 $
-KonstrÃ¼ksiyon: 299 $
-DiÄŸer Giderler: 100 $
+Sürücü: 350 $
+Konstrüksiyon: 299 $
+Diðer Giderler: 100 $
 Beton Maliyeti: 250 $
-Ä°ÅŸÃ§ilik Maliyeti: 250 $
+Ýþçilik Maliyeti: 250 $
 Toplam Maliyet: 3711 $
-Dolar Kuru: 18 TÃ¼rk LirasÄ±
-Toplam Maliyet:69942 TÃ¼rk LirasÄ±
+Dolar Kuru: 18 Türk Lirasý
+Toplam Maliyet:69942 Türk Lirasý

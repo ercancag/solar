@@ -37,7 +37,7 @@ def hesaplama():
         konstrüksiyon_fyt = panel_adet * konstrüksiyon_girdi
         toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler + beton_fyt + iscilik_fyt
         toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var 
-        sonuc_etiketi = tk.Label(çerçeve2, font=('GeoSlab703 MdCn BT',25),padx=10, pady=10,foreground='black',
+        sonuc_etiketi = tk.Label(çerçeve2, font=('GeoSlab703 MdCn BT',15),padx=10, pady=10,foreground='black',
         text=f"Müşteri: Sayın " + müsteri_bilgisi_al + " \n "
         f"Panel: {panel_sonuc_usd:.2f} $          "
         f"Sürücü: {src_fiyat:.2f} $\n"
@@ -123,7 +123,7 @@ müsteri_bilgisi.grid(row=5,column=0)
 müsteri_bilgisi_giris = tk.Entry(çerçeve1)
 müsteri_bilgisi_giris.grid(row=5, column=1)
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
-hesaplama_butonu.config(font=('DIN Condensed',25), foreground="blue")
+hesaplama_butonu.config(font=('DIN Condensed',15), foreground="blue")
 hesaplama_butonu.grid(row=8,column=0,padx=1,pady=1)
 
 imzaimage = tk.PhotoImage(file="ercancagimza.png")
@@ -147,7 +147,7 @@ kanvas2.create_image(155, 40, image=my_img)
 kanvas2.pack(padx=1, pady=1, side="right")
 
 gowebsite = tk.Button(çerçeve1, text="Hakkında",command=open_website)
-gowebsite.config(font=('DIN Condensed',25), foreground="red")
+gowebsite.config(font=('DIN Condensed',15), foreground="red")
 gowebsite.grid(row=8,column=3,padx=20,pady=20)
 
 ############################ Ekran Görüntüsü #################################
@@ -164,7 +164,7 @@ def take_screenshot():
         #Ekran görüntüsü almak için capture_screen() fonksiyonunu çağır
         anapencere.after(100, ekrankayit)
 ekran_goruntusu = tk.Button(çerçeve1, text="Ekran Görüntüsü",command=take_screenshot)
-ekran_goruntusu.config(font=('DIN Condensed',25), foreground="green")
+ekran_goruntusu.config(font=('DIN Condensed',15), foreground="green")
 ekran_goruntusu.grid(row=8,column=2)
 
 çerçeve1.pack(padx=10,pady=10)
