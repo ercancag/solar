@@ -1,13 +1,6 @@
-import kivy
-kivy.require('1.11.1')
+from setuptools import setup
 
-from kivy.app import App
-from kivy.uix.button import Button
+APP = ['maliyet.py']
+OPTIONS = {'argv_emulation': True}
 
-class MyApp(App):
-
-    def build(self):
-        return Button(text='Hello Kivy')
-
-if __name__ == '__main__':
-    MyApp().run()
+setup(app=APP, options={'py2app':OPTIONS},setup_requires=['py2app'])
