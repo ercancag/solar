@@ -52,6 +52,7 @@ def hesaplama():
         sonuc_etiketi.grid(row=0,column=0,padx=1,pady=1)
         with open('maliyet_hesabi.txt', 'w') as f:
             f.write("ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU" + "\n")
+            f.write("Müşteri: " + '%d' %müsteri_bilgisi_al + "\n")
             f.write("Panel: " + '%d' % panel_sonuc_usd + " $" + "\n")
             f.write("Sürücü: " + '%d' % src_fiyat + " $" + "\n")
             f.write("Konstrüksiyon: " + '%d' % konstrüksiyon_fyt + " $" + "\n")
