@@ -175,3 +175,4 @@ ekran_goruntusu.grid(row=8,column=2)
 çerçeve4.pack(padx=10,pady=10)
 
 anapencere.mainloop()
+#deneme
