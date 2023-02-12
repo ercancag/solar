@@ -1,6 +1,13 @@
-from distutils.core import setup
-import py2app
+import kivy
+kivy.require('1.11.1')
 
-setup(
-    app=["maliyet_hesaplayici.py"],
-)
+from kivy.app import App
+from kivy.uix.button import Button
+
+class MyApp(App):
+
+    def build(self):
+        return Button(text='Hello Kivy')
+
+if __name__ == '__main__':
+    MyApp().run()
