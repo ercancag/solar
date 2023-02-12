@@ -124,7 +124,7 @@ müsteri_bilgisi.grid(row=5,column=0)
 müsteri_bilgisi_giris = tk.Entry(çerçeve1)
 müsteri_bilgisi_giris.grid(row=5, column=1)
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
-hesaplama_butonu.config(font=('DIN Condensed',15), foreground="blue")
+hesaplama_butonu.config(font=('Verdana',15), foreground="blue")
 hesaplama_butonu.grid(row=8,column=0,padx=1,pady=1)
 
 imzaimage = tk.PhotoImage(file="ercancagimza.png")
@@ -134,6 +134,7 @@ my_img=ImageTk.PhotoImage(boyutluimage2)
 kanvas = tk.Canvas(çerçeve4, height=70, width=250)
 kanvas.create_image(135, 40, image=imzaimage)
 kanvas.pack(padx=1, pady=1,side='left')
+
 ########################### SAAT ###################################
 saat_label = tk.Label(çerçeve4, font='Verdena', fg='black') 
 saat_label.pack(side="right", fill=tk.X)
@@ -148,7 +149,7 @@ kanvas2.create_image(155, 40, image=my_img)
 kanvas2.pack(padx=1, pady=1, side="right")
 
 gowebsite = tk.Button(çerçeve1, text="Hakkında",command=open_website)
-gowebsite.config(font=('DIN Condensed',15), foreground="red")
+gowebsite.config(font=('Verdana',15), foreground="red")
 gowebsite.grid(row=8,column=3,padx=20,pady=20)
 
 ############################ Ekran Görüntüsü #################################
@@ -165,12 +166,12 @@ def take_screenshot():
         #Ekran görüntüsü almak için capture_screen() fonksiyonunu çağır
         anapencere.after(100, ekrankayit)
 ekran_goruntusu = tk.Button(çerçeve1, text="Ekran Görüntüsü",command=take_screenshot)
-ekran_goruntusu.config(font=('DIN Condensed',15), foreground="green")
+ekran_goruntusu.config(font=('Verdana',15), foreground="green")
 ekran_goruntusu.grid(row=8,column=2)
 
 çerçeve1.pack(padx=10,pady=10)
 çerçeve2.pack(padx=10,pady=10)
-çerçeve3.pack(padx=20,pady=20)
-çerçeve4.pack(padx=20,pady=20)
+çerçeve3.pack(padx=10,pady=10)
+çerçeve4.pack(padx=10,pady=10)
 
 anapencere.mainloop()
