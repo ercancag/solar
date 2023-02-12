@@ -25,19 +25,21 @@ def hesaplama():
         panel_gücü = float(var1.get())
         panel_kdv = float(var2.get())
         panel_birim_fiyat_var = float(panel_birim_fiyat_girisi.get())
-        usd_kur_var = float(Dolar_Deger)
+        usd_kur_var = float(Dolar_Deger) or float(usd_kur_girisi.get())
         panel_adet = float(panel_sayisi_girisi.get())
         src_fiyat = float(src_fiyat_girisi.get())
         diger_giderler = float(diger_giderler_giris.get())
         konstrüksiyon_girdi = float(konstrüksiyon_girisi.get())
         beton_fyt = float(beton_giris.get())
         iscilik_fyt = float(iscilik_giris.get())
+        müsteri_bilgisi_al = str(müsteri_bilgisi_giris.get())
         panel_sonuc_usd = panel_gücü * panel_birim_fiyat_var * panel_kdv * panel_adet
         konstrüksiyon_fyt = panel_adet * konstrüksiyon_girdi
         toplam_maliyet_usd = panel_sonuc_usd + src_fiyat + konstrüksiyon_fyt + diger_giderler + beton_fyt + iscilik_fyt
-        toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var
+        toplam_maliyet_tl = toplam_maliyet_usd * usd_kur_var 
         sonuc_etiketi = tk.Label(çerçeve2, font=('GeoSlab703 MdCn BT',25),padx=10, pady=10,foreground='black',
-        text=f"Panel: {panel_sonuc_usd:.2f} $          "
+        text=f"Müşteri: Sayın " + müsteri_bilgisi_al + " \n "
+        f"Panel: {panel_sonuc_usd:.2f} $          "
         f"Sürücü: {src_fiyat:.2f} $\n"
         f"Konstrüksiyon: {konstrüksiyon_fyt:.2f} $        "
         f"Diğer Giderler: {diger_giderler:.2f} $\n"
@@ -116,7 +118,10 @@ iscilik_etiket.grid(row=4,column=2)
 iscilik_giris = tk.Entry(çerçeve1)
 iscilik_giris.grid(row=4,column=3)
 iscilik_giris.insert(0,250)
-
+müsteri_bilgisi = tk.Label(çerçeve1,text="Müşteri Bilgisi: (Ad-Soyad)")
+müsteri_bilgisi.grid(row=5,column=0)
+müsteri_bilgisi_giris = tk.Entry(çerçeve1)
+müsteri_bilgisi_giris.grid(row=5, column=1)
 hesaplama_butonu = tk.Button(çerçeve1, text='Hesapla', command=hesaplama)
 hesaplama_butonu.config(font=('DIN Condensed',25), foreground="blue")
 hesaplama_butonu.grid(row=8,column=0,padx=1,pady=1)
