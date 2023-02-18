@@ -4,9 +4,12 @@ from tkinter import messagebox
 import time
 from tkinter.font import BOLD, ITALIC
 
-
-
-
+ana_pencere = tk.Tk()
+ana_pencere.title("Kredi Hesaplama")
+çerçeve1 = tk.Frame(ana_pencere)
+çerçeve2 = tk.Frame(ana_pencere)
+çerçeve3 = tk.Frame(ana_pencere)
+çerçeve4 = tk.Frame(ana_pencere)
 
 def hesaplama():
     try:
@@ -37,13 +40,7 @@ def hesaplama():
     except ValueError:
         sonuc.config(text="Lütfen geçerli bir değer girin.", fg="red")
 
-# Ana pencere oluşturma
-ana_pencere = tk.Tk()
-ana_pencere.title("Kredi Hesaplama")
-çerçeve1 = tk.Frame(ana_pencere)
-çerçeve2 = tk.Frame(ana_pencere)
-çerçeve3 = tk.Frame(ana_pencere)
-çerçeve4 = tk.Frame(ana_pencere)
+
 # Girdi alanları için etiketler ve girdi kutuları oluşturma
 kredi_tutari_etiket = tk.Label(çerçeve1, text="Kredi Tutarı:", font=("Arial", 14),width="16",background="#E3CF57",height="1")
 kredi_tutari_etiket.grid(row=0, column=0)
@@ -63,7 +60,7 @@ taksit_sayisi_etiket = tk.Label(çerçeve1, text="Taksit Sayısı:", font=("Aria
 taksit_sayisi_etiket.grid(row=2, column=0)
 
 taksit_sayisi_girisi = tk.Entry(çerçeve1, font=("Arial", 14),width="10")
-taksit_sayisi_girisi.insert(0,12)
+taksit_sayisi_girisi.insert(0,6)
 taksit_sayisi_girisi.grid(row=2, column=1)
 
 # Hesapla butonunu oluşturma
@@ -74,12 +71,7 @@ hesapla_butonu.grid(row=3, column=0, padx=5, pady=5)
 sonuc = tk.Label(çerçeve1, text="", font=("Arial", 14))
 sonuc.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
-ana_pencere = tk.Tk()
-ana_pencere.title("Kredi Hesaplama")
-çerçeve1 = tk.Frame(ana_pencere)
-çerçeve2 = tk.Frame(ana_pencere)
-çerçeve3 = tk.Frame(ana_pencere)
-çerçeve4 = tk.Frame(ana_pencere)
+
 
 
 def ekrankayit():
