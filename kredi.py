@@ -4,6 +4,10 @@ from tkinter import messagebox
 import time
 from tkinter.font import BOLD, ITALIC
 
+
+
+
+
 def hesaplama():
     try:
         kredi_tutari = float(kredi_tutari_girisi.get())
@@ -15,6 +19,7 @@ def hesaplama():
         toplam_tutar = taksit_miktari*taksit_sayisi
 
         # Taksit tablosu oluşturma
+        
         taksit_tablosu = tk.Label(çerçeve1, text="Anapara\t    Faiz\t  Taksit\tKalan Borç", font=("Arial", 14),bg="#98F5FF")
         taksit_tablosu.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
 
@@ -69,6 +74,12 @@ hesapla_butonu.grid(row=3, column=0, padx=5, pady=5)
 sonuc = tk.Label(çerçeve1, text="", font=("Arial", 14))
 sonuc.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
+ana_pencere = tk.Tk()
+ana_pencere.title("Kredi Hesaplama")
+çerçeve1 = tk.Frame(ana_pencere)
+çerçeve2 = tk.Frame(ana_pencere)
+çerçeve3 = tk.Frame(ana_pencere)
+çerçeve4 = tk.Frame(ana_pencere)
 
 
 def ekrankayit():
