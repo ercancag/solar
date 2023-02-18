@@ -15,7 +15,6 @@ def hesaplama():
         toplam_tutar = taksit_miktari*taksit_sayisi
 
         # Taksit tablosu oluşturma
-        taksit_tablosu = ""
         taksit_tablosu = tk.Label(çerçeve1, text="Anapara\t    Faiz\t  Taksit\tKalan Borç", font=("Arial", 14),bg="#98F5FF")
         taksit_tablosu.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
 
