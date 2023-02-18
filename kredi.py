@@ -15,6 +15,7 @@ def hesaplama():
         toplam_tutar = taksit_miktari*taksit_sayisi
 
         # Taksit tablosu oluşturma
+        taksit_tablosu = ""
         taksit_tablosu = tk.Label(çerçeve1, text="Anapara\t    Faiz\t  Taksit\tKalan Borç", font=("Arial", 14),bg="#98F5FF")
         taksit_tablosu.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
 
@@ -23,11 +24,11 @@ def hesaplama():
             faiz_tutari = kalan_borc * faiz_orani
             anapara_tutari = taksit_miktari - faiz_tutari
             kalan_borc -= anapara_tutari
-
+            
             taksit_satiri = "{:.2f}\t{:.2f}\t{:.2f}\t{:.2f}".format(anapara_tutari, faiz_tutari, taksit_miktari, kalan_borc)
             taksit_satiri_widget = tk.Label(çerçeve1, text=taksit_satiri, font=("Arial", 14),background="#CAFF70")
             taksit_satiri_widget.grid(row=i+6, column=0, columnspan=2, padx=5, pady=5)
-
+        sonuc.config(text="")
         sonuc.config(text="Taksit Tutarı: {:.2f} TL\nToplam Ödenecek Tutar: {:.2f} TL".format(taksit_miktari, toplam_tutar), bg="aquamarine", fg="black")
     except ValueError:
         sonuc.config(text="Lütfen geçerli bir değer girin.", fg="red")
