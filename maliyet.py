@@ -65,7 +65,7 @@ def hesaplama():
         f.write("Toplam Maliyet: " + '%d' % toplam_maliyet_usd + " $" + "\n")
         f.write("Dolar Kuru: " + '%d' % usd_kur_var + " Türk Lirası" + "\n")
         f.write("Toplam Maliyet:" + '%d' % toplam_maliyet_tl + " Türk Lirası" + "\n")
-    conn = sqlite3.connect('maliyet_analizi.db')
+    conn = sqlite3.connect('maliyet_analizi2.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE maliyet_analizi
              (id INTEGER PRIMARY KEY,
