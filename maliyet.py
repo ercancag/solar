@@ -69,8 +69,8 @@ def hesaplama():
     c = conn.cursor()
     c.execute('''CREATE TABLE maliyet_analizi
              (id INTEGER PRIMARY KEY,
-              musteri TEXT,
-              panel FLOAT,
+              Müşteri TEXT,
+              Panel_Maliyeti FLOAT,
               surucu FLOAT,
               konstruksiyon FLOAT,
               diger_giderler FLOAT,
