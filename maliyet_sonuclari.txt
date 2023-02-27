@@ -1,5 +1,5 @@
 ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU
-Müşteri: ererer
+Müşteri: cacaca
 Panel: 2462 $
 Sürücü: 350 $
 Konstrüksiyon: 299 $

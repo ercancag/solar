@@ -84,7 +84,7 @@ def hesaplama():
     c.execute("SELECT * FROM maliyet_analizi")
     rows = c.fetchall()
     for row in rows:
-        print(row)
+        print(row+1)
     conn.close()
 
 
