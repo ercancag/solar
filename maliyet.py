@@ -6,7 +6,9 @@ import webbrowser
 from tkinter.font import BOLD, ITALIC
 from DovizKurlari import DovizKurlari
 import sqlite3
+from flask import Flask, render_template, request
 
+app = Flask(__name__)
 
 
 dovizbilgisial = DovizKurlari()
@@ -65,28 +67,6 @@ def hesaplama():
         f.write("Toplam Maliyet: " + '%d' % toplam_maliyet_usd + " $" + "\n")
         f.write("Dolar Kuru: " + '%d' % usd_kur_var + " Türk Lirası" + "\n")
         f.write("Toplam Maliyet:" + '%d' % toplam_maliyet_tl + " Türk Lirası" + "\n")
-    conn = sqlite3.connect('maliyet_analizi2.db')
-    c = conn.cursor()
-    c.execute('''CREATE TABLE maliyet_analizi
-             (id INTEGER PRIMARY KEY,
-              Müşteri TEXT,
-              Panel_Maliyeti FLOAT,
-              surucu FLOAT,
-              konstruksiyon FLOAT,
-              diger_giderler FLOAT,
-              beton_maliyeti FLOAT,
-              iscilik_maliyeti FLOAT,
-              toplam_maliyet FLOAT)''')
-    c.execute("INSERT INTO maliyet_analizi VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",
-          (müsteri_bilgisi_al, panel_sonuc_usd, src_fiyat, konstrüksiyon_fyt,
-           diger_giderler, beton_fyt, iscilik_fyt, toplam_maliyet_usd))
-    conn.commit()
-    c.execute("SELECT * FROM maliyet_analizi")
-    rows = c.fetchall()
-    for row in rows:
-        print(row+1)
-    conn.close()
-
 
 
 
@@ -203,5 +183,8 @@ ekran_goruntusu.grid(row=8,column=2)
 çerçeve2.pack(padx=10,pady=10)
 çerçeve3.pack(padx=10,pady=10)
 çerçeve4.pack(padx=10,pady=10)
+
+
+
 
 anapencere.mainloop()

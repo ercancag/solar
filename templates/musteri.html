@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Maliyet Analizi - Müşteri Verileri</title>
+</head>
+<body>
+	<h1>Müşteri Verileri</h1>
+	<form method="POST">
+		<label for="musteri_adi">Müşteri Adı:</label>
+		<input type="text" id="musteri_adi" name="musteri_adi">
+		<input type="submit" value="Göster">
+	</form>
+	{% if rows %}
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Müşteri</th>
+					<th>Panel</th>
+					<th>Sürücü</th>
+					<th>Konstrüksiyon</th>
+					<th>Diğer Giderler</th>
+					<th>Beton Maliyeti</th>
+					<th>İşçilik Maliyeti</th>
+					<th>Toplam Maliyet</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in rows %}
+					<tr>
+						<td>{{ row[0] }}</td>
+						<td>{{ row[1] }}</td>
+						<td>{{ row[2] }}</td>
+						<td>{{ row[2] }}</td>
+						<td>{{ row[3] }}</td>
+						<td>{{ row[4] }}</td>
+						<td>{{ row[5] }}</td>
+						<td>{{ row[6] }}</td>
+						<td>{{ row[7] }}</td>
+						<td>{{ row[8] }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+</body>
+</html>
