@@ -5,6 +5,9 @@ from PIL import Image, ImageTk, ImageGrab
 import webbrowser
 from tkinter.font import BOLD, ITALIC
 from DovizKurlari import DovizKurlari
+import sqlite3
+
+
 
 dovizbilgisial = DovizKurlari()
 Dolar_Deger = dovizbilgisial.DegerSor("USD","ForexSelling")
@@ -62,6 +65,33 @@ def hesaplama():
         f.write("Toplam Maliyet: " + '%d' % toplam_maliyet_usd + " $" + "\n")
         f.write("Dolar Kuru: " + '%d' % usd_kur_var + " Türk Lirası" + "\n")
         f.write("Toplam Maliyet:" + '%d' % toplam_maliyet_tl + " Türk Lirası" + "\n")
+    conn = sqlite3.connect('maliyet_analizi.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE maliyet_analizi
+             (id INTEGER PRIMARY KEY,
+              musteri TEXT,
+              panel FLOAT,
+              surucu FLOAT,
+              konstruksiyon FLOAT,
+              diger_giderler FLOAT,
+              beton_maliyeti FLOAT,
+              iscilik_maliyeti FLOAT,
+              toplam_maliyet FLOAT)''')
+    c.execute("INSERT INTO maliyet_analizi VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",
+          (müsteri_bilgisi_al, panel_sonuc_usd, src_fiyat, konstrüksiyon_fyt,
+           diger_giderler, beton_fyt, iscilik_fyt, toplam_maliyet_usd))
+    conn.commit()
+    c.execute("SELECT * FROM maliyet_analizi")
+    rows = c.fetchall()
+    for row in rows:
+        print(row)
+    conn.close()
+
+
+
+
+
+
 
 var1 = tk.Variable()
 var2 = tk.Variable()
