@@ -1,11 +1,11 @@
 ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU
-Müşteri: ercn cglyn
-Panel: 2462 $
-Sürücü: 350 $
-Konstrüksiyon: 299 $
-Diğer Giderler: 100 $
-Beton Maliyeti: 250 $
+Müşteri: 
+Panel: 1271 $
+Sürücü: 450 $
+Konstrüksiyon: 0 $
+Diğer Giderler: 0 $
+Beton Maliyeti: 0 $
 İşçilik Maliyeti: 250 $
-Toplam Maliyet: 3711 $
+Toplam Maliyet: 1971 $
 Dolar Kuru: 18 Türk Lirası
-Toplam Maliyet:70035 Türk Lirası
+Toplam Maliyet:37250 Türk Lirası
