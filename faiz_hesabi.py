@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 
 root = tk.Tk()
 root.title("FAİZ HESAPLAMA")
-root.colormapwindows()
+#root.config(background="black")
 frame1 = tk.Frame(root)
 frame2 = tk.Frame(root)
 anapara_girisi = tk.Entry(frame1)

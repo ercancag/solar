@@ -1,11 +1,11 @@
 ÇAĞLAYAN MÜHENDİSLİK LİMİTED ŞİRKETİ SİSTEM RAPORU
-Müşteri: CAGLAYAN
-Panel: 2462 $
+Müşteri: Ufuk Doğan
+Panel: 3382 $
 Sürücü: 350 $
-Konstrüksiyon: 299 $
+Konstrüksiyon: 375 $
 Diğer Giderler: 100 $
-Beton Maliyeti: 250 $
+Beton Maliyeti: 300 $
 İşçilik Maliyeti: 250 $
-Toplam Maliyet: 3711 $
-Dolar Kuru: 18 Türk Lirası
-Toplam Maliyet:70136 Türk Lirası
+Toplam Maliyet: 4757 $
+Dolar Kuru: 19 Türk Lirası
+Toplam Maliyet:90452 Türk Lirası
